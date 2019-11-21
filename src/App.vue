@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <h1>PupFest 2020</h1>
+        <ul class="dogs">
+            <li v-for="dog in dogs" :key="dog.id">
+                <DogCard :dog="dog" />
+            </li>
+        </ul>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import DogCard from "@/components/DogCard"
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+    components: {
+        DogCard,
+    },
+    data(){
+        return {
+            dogs: [{
+                id: 1,
+                name: "Spud",
+                description: "A real good buddy",
+                imageUrl: "https://hips.hearstapps.com/ghk.h-cdn.co/assets/17/30/2560x1280/landscape-1500925839-golden-retriever-puppy.jpg?resize=480:*"
+            },{
+                id: 2,
+                name: "McKenzie",
+                description: "A great gal",
+                imageUrl: "https://hips.hearstapps.com/ghk.h-cdn.co/assets/17/30/2560x1280/landscape-1500925839-golden-retriever-puppy.jpg?resize=480:*"
+            },{
+                id: 3,
+                name: "Rocket",
+                description: "A scamp!",
+                imageUrl: "https://hips.hearstapps.com/ghk.h-cdn.co/assets/17/30/2560x1280/landscape-1500925839-golden-retriever-puppy.jpg?resize=480:*"
+            }]
+        }
     }
-  }
+}
+</script>
+
+<style lang="scss">
+ul {
+    list-style: none;
 }
 </style>
